@@ -11,8 +11,8 @@
         height: 100%;
         display: flex;
         width: 100%;
-        padding: 0 5%;
-        max-width: 1600px;
+        padding: 0 7%;
+        max-width: 1800px;
 
         .horizontal-wave{
             width: 100vw;
@@ -42,15 +42,34 @@
                         margin-right: 20px;
                         color: $text-color;
                         font-weight: 700;
-                        cursor: pointer;
+                        border-radius: 14px;
+                        text-decoration: none;
+                        position: relative;
+                        &:not(.active)::after{
+                            content: '';
+                            position: absolute;
+                            bottom: -4px;
+                            left: 0;
+                            height: 2px;
+                            width: 100%;
+                            background-color: $orange;
+                            transform: scaleX(0);
+                            transform-origin: right;
+                            transition: all .3s cubic-bezier(0.68,-0.55,0.27,1.55);
+                        }
+                        &:not(.active):hover{
+                            color: $orange;
+                            &::after{
+                                transform: scaleX(1);
+                                transform-origin: right;
+                            }
+                        }
                     }
                     
                     .active{
-                        background-color: $orange;
                         padding: 15px 20px;
-                        border-radius: 10px;
+                        background-color: $orange;
                         color: #fff;
-                        font-weight: 700;
                     }
                 }
 
@@ -61,12 +80,10 @@
                     .top{
                         display: flex;
     
-                        
-    
                         img{
                             width: 26vw;
                             height: auto;
-                            max-width: 520px;
+                            max-width: 500px;
                         }
     
                         &-right{
@@ -74,6 +91,9 @@
                             display: flex;
                             flex-direction: column;
                             justify-content: space-between;
+                            h2{
+                                font-size: 2em;
+                            }
     
                             a{
                                 color: $orange;
@@ -82,22 +102,17 @@
                             .slide-icons{
                                 display: flex;
                                 flex-direction: column;
+                                gap: 5px;
                                 .item{
-                                    margin: 2px 0;
-                                }
-                                .active{
-                                    background-color: #699DFF;
-                                    border-radius: 15px;
-                                    height: 32px;
-                                    width: 9px;
-                                    display: inline-block;
-                                }
-                                .inactive{
                                     background-color: #CCDEFF;
                                     border-radius: 15px;
-                                    height: 9px;
-                                    width: 9px;
+                                    height: 8px;
+                                    width: 8px;
                                     display: inline-block;
+                                    &.active{
+                                        background-color: #699DFF;
+                                        height: 32px;
+                                    }
                                 }
                             }
                         }
@@ -107,40 +122,75 @@
                         display: flex;
                         justify-content: space-between;
                         width: 26vw;
-                        margin-top: 5%;
+                        margin-top: 80px;
                         // background-color: red;
                         .first{
                             margin-right: 33px;
                         }
                         .card{
-                            height: 30vh;
+                            // height: 30vh;
                             width: 45%;
                             border-radius: 20px;
-                            max-height: 324px;
+                            height: 300px;
                             max-width: 400px;
                             text-align: center;
     
-                            box-shadow: rgba(0, 0, 0, 0.07) 1.95px 1.95px 2.6px;
+                            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     
                             display: flex;
                             flex-direction: column;
-                            justify-content: center;
+                            justify-content: space-between;
                             align-items: center;
+                            padding: 30px 5%;
     
                             .card-image{
-                                margin-bottom: 40px;
                                 max-width: 120px ;
                                 max-height: 120px ;
-                                width: 50%;
+                                width: 70%;
                                 height: auto;
                             }
-    
-                            h3{
-                                color: $text-color;
+                            svg{
                             }
-                            a{
-                                color: $orange;
-                                font-weight: 600;
+                            g#aiguille{
+                                transform-origin: center;
+                                border: 1px solid red;
+                                transition: all .2s linear;
+                                // animation: rotate 5s linear infinite;
+                            }
+                            @keyframes rotate {
+                                to{
+                                    transform: rotateZ(360deg);
+                                }
+                            }
+                            path#dashed-path{
+                                stroke-width: 2;
+                                animation: dashAnim 2s linear infinite;
+                            }
+                            @keyframes dashAnim {
+                                to{
+                                    stroke-dashoffset: 17;
+                                }
+                            }
+                            circle#circlePulse{
+                                transform-origin: 39% 52%;
+                                transform: scale(1.4);
+                                animation: pulse 1s infinite alternate;
+                            }
+                            @keyframes pulse {
+                                to{
+                                    transform: scale(1);
+                                }
+                            }
+    
+                            .text{
+                                h3{
+                                    color: $text-color;
+                                    margin-bottom: 10px;
+                                }
+                                a{
+                                    color: $orange;
+                                    font-weight: 600;
+                                }
                             }
                         }
                     }
@@ -166,8 +216,13 @@
                 left: -100px;
                 background-repeat: no-repeat;
                 background-size: contain;
-                background-image: url('../../assets/images/wave.png');
+                background-image: url('../../assets/images/waves.svg');
+                // border: 1px solid red;
+                pointer-events: none;
                 
+            }
+            .waves-tablet{
+                display: none;
             }
 
             
@@ -179,17 +234,21 @@
                 justify-content: space-between;
                 flex-grow: 1;
                 color: $text-color;
-                min-height: 90vh;
-                // height: 80vh;
+                min-height: 100vh;
+                height: 100%;
 
                 
                 .profile-container{
-                    text-align: center;
                     padding-top: 7%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    justify-content: center;
+                    align-items: center;
                     .edit{
                         color: #5229CA; 
                         font-weight: 700;
-                        margin: 10px 0 30px 0
+                        margin: 20px 0;
                     }
     
                     .mail{
@@ -199,7 +258,14 @@
                 }
     
                 .actual{
-                    margin-bottom: -40px;
+                    // margin-bottom: -40px;
+                    width: 100%;
+                    max-width: 450px;
+                    // border: 1px solid red;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    gap: 50px;
                     .flex{
                         display: flex;
                     }
@@ -210,29 +276,73 @@
                     &-content{
                         display: flex;
                         justify-content: space-between;
-                        width: 450px;
-                        max-width: 450px;
-                        margin-bottom: 40px;
+                        .flex{
+                            gap: 10px;
+                        }
                         p{
-                            font-size: 21px;
+                            // font-size: 21px;
                             font-weight: 600;
+                            .number{
+                                font-size: 27px;
+                                margin-right: 5px;
+                            }
                         }
                         .icon{
-                            width: 48px;
+                            // width: 48px;
+                            max-width: 50px;
+                            max-height: 50px;
+                            // border: 1px solid red;
                             height: auto;
                             margin-right: 20px;
+                            overflow: visible;
+
+                            .tube{
+                                stroke-dasharray: 60;
+                                animation: tubeAnim 2s infinite;
+                            }
+                            @keyframes tubeAnim {
+                                to{
+                                    stroke-dashoffset: 120;
+                                }
+                            }
+
+                            path.rame{
+                                transform-origin: center;
+                                animation: rotateRame 2s ease-in-out infinite alternate;
+                            }
+                            @keyframes rotateRame {
+                                to{
+                                    transform: rotateZ(90deg);
+                                }
+                            }
+
+                        }
+                        i{  
+                            color: #C1BFC5;
+                            cursor: pointer;
+                            transition: all .3s;
+                            height: 50%;
+                            width: 20px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            // border: 1px solid red;
+                            &:hover{
+                                transform: rotate(90deg);
+                                color: #818181;
+                            }
                         }
     
                         ul{
                             list-style-type: none;
                             display: flex;
-                            margin-right: 40px;
+                            margin-right: 20px;
     
                             & > li:not(first-child) {
                                 margin-left: -15px;
                             }
                             li img {
-                                width: 50px;
+                                width: 45px;
                                 height: auto;
                             }
     
@@ -257,6 +367,8 @@
             display: flex;
             justify-content: space-between;
             color: #C1BFC5;
+            margin-bottom: 40px;
+            // width: 100%;
             p{
                 margin-right: 7vw;
             }
@@ -266,46 +378,53 @@
         }
     }
 
-    @media(max-width: 1280px){
-        background: #fff;
-        .right{
-                .wave{
-                    display: none;
-                }
-            }
-        }
 
     @media(max-width: 1280px){
         height: auto;
+        background: none;
         .hero{
             flex-direction: column;
             align-items: center;
+            padding: 0;
+            padding-top: 50px;
             .left{
+                padding: 0 5%;
                 .content{   
                     align-items: center;
                     .slide-container{
                         width: 100%;
 
                         .top{
-                            justify-content: space-around;
+                            // justify-content: space-around;
                             width: 100%;
-                            
+                            margin-top: 40px;
 
                             img{
-                                width: 50vw ;
+                                max-width: 700px;
+                                width: 70vw ;
+                                // max-width: 800px ;
+                                // border: 1px solid red;
                             }
 
                         }
                         .card-container{
                             width: 100%;
-                            justify-content: space-around;
+                            // justify-content: space-around;
 
                             .first{
                                 margin-right: 0;
                             }
 
                             .card{
-                                // width: 30%;
+                                width: 45%;
+                                flex-direction: row;
+                                justify-content: initial;
+                                gap: 30px;
+                                max-width: initial;
+                                height: 180px;
+                                .text{
+                                    text-align: left;
+                                }
                             }
                         }
                     }
@@ -314,22 +433,52 @@
             }
 
             .right{
+                background: #F3F3F4;
+                margin-top: 5vh;
+                .wave{
+                    display: none;
+                }
+                .waves-tablet{
+                    display: block !important;
+                    width: 100%;
+                    // margin-left: -5vw;
+                    // border: 1px solid red;
+                    pointer-events: none;
+                    img{
+                        width: 100%;
+                    }
+                }
                 .content{
-                    align-items: center !important;
+                    // align-items: center;
+                    align-items: initial;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    height: initial;
+                    min-height: initial;
+                    // padding-top: 10vh;
+                    padding-bottom: 10vh;
+                    padding-left: 5%;
+                    padding-right: 5%;
                     .profile-container{
-                        margin-bottom: 40px;
+                        padding-top: initial;
                     }
                     .actual{
                         display: flex;
                         flex-direction: column;
-                        align-items: center;
+                        gap: initial;
+                    }
+                    .media{
+                        margin-top: 10vh;
+                        width: 100%;
+                        justify-content: center;
                     }
                 }
             }
         }
     }
 
-    @media(max-width: 700px){
+    @media(max-width: 740px){
 
         .left{
             .content{
@@ -337,17 +486,16 @@
                     width: 100%;
                     .top{
                         flex-direction: column;
-                        align-items: center;
-                        text-align: center;
                         img{
                             width: 100% !important;
                         }
     
                         &-right{
                             margin: 0 !important;
-                            align-items: center;
+                            // align-items: center;
                             .slide-icons{
                                 flex-direction: row !important;
+                                justify-content: center;
                                 margin-top: 30px;
                                 .item{
                                     margin-right: 2px !important;
@@ -366,15 +514,21 @@
                 // background-color: skyblue;
                 .card-container{
                     flex-direction: column;
-                    width: 100% !important;
-                    padding-left: 0 !important;
-                    align-items: center;
+                    // width: 100% ;
+                    padding-left: 0px;
                     // background-color: tomato;
+                    // border: 1px solid red;
                     .card{
                         width: 100% !important;
-                        height: 250px !important;
-                        min-height: 250px;
-                        margin-bottom: 20px;
+                        max-width: initial;
+                        // height: 150px ;
+                        // min-height: 250px;
+                        // margin-bottom: 20px;
+                        .card-image{
+                            max-width: initial;
+                            max-height: initial;
+                            width: 100px !important;
+                        }
                     }
                 }
             }
@@ -382,9 +536,16 @@
 
         .right{
             .content{
-
+                flex-direction: column !important;
+                gap: 30px   ;
+                .profile-container{
+                    // border: 1px solid red;
+                }
                 .actual{
+                    margin-top: 40px;
                     width: 100%;
+                    max-width: initial !important;
+                    gap: 30px !important;
                     .icon{
                         width: 36px !important;
                         height: 36px !important;
@@ -405,8 +566,12 @@
                 }
     
                 .media{
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 30px;
                     p{
-                        font-size: 12px !important ;
+                        // font-size: 12px !important ;
+                        margin: 0;
                     }
                     i{
                         margin-right: 5px;
