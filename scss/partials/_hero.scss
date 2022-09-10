@@ -120,7 +120,7 @@
                             max-width: 400px;
                             text-align: center;
     
-                            box-shadow: rgba(1.5, 0, 0, 0.15)  2px 2px 2.6px;
+                            box-shadow: rgba(0, 0, 0, 0.07) 1.95px 1.95px 2.6px;
     
                             display: flex;
                             flex-direction: column;
@@ -299,6 +299,10 @@
                         .card-container{
                             width: 100%;
                             justify-content: space-around;
+
+                            .first{
+                                margin-right: 0;
+                            }
 
                             .card{
                                 // width: 30%;
