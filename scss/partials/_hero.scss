@@ -20,7 +20,7 @@
 
         
         .left{
-            padding-top: 70px;
+            padding-top: 3%;
             // padding-left: 10vw;
             
             width: 100%;
@@ -106,6 +106,7 @@
                         justify-content: space-between;
                         width: 26vw;
                         margin-top: 5%;
+                        max-width: 520px;
                         // background-color: red;
                         .first{
                             // margin-right: 33px;
@@ -182,7 +183,7 @@
                 
                 .profile-container{
                     text-align: center;
-                    padding-top: 70px;
+                    padding-top: 7%;
                     .edit{
                         color: #5229CA; 
                         font-weight: 700;
@@ -196,7 +197,7 @@
                 }
     
                 .actual{
-                    
+                    margin-bottom: -15vh;
                     .flex{
                         display: flex;
                     }
