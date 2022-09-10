@@ -106,7 +106,6 @@
                         justify-content: space-between;
                         width: 26vw;
                         margin-top: 5%;
-                        max-width: 520px;
                         // background-color: red;
                         .first{
                             // margin-right: 33px;
@@ -285,45 +284,48 @@
                     align-items: center;
                     .slide-container{
                         width: 100%;
-                    }
-                    .top{
-                        flex-direction: column;
-                        align-items: center;
-                        text-align: center;
-                        img{
-                            width: 100% !important;
-                        }
-    
-                        &-right{
-                            margin: 0 !important;
+                        .top{
+                            flex-direction: column;
                             align-items: center;
-                            .slide-icons{
-                                flex-direction: row !important;
-                                margin-top: 30px;
-                                .item{
-                                    margin-right: 2px !important;
-                                }
-    
-                                .active{
-                                    width: 32px !important;
-                                    height: 9px !important;
+                            text-align: center;
+                            img{
+                                width: 100% !important;
+                            }
+        
+                            &-right{
+                                margin: 0 !important;
+                                align-items: center;
+                                .slide-icons{
+                                    flex-direction: row !important;
+                                    margin-top: 30px;
+                                    .item{
+                                        margin-right: 2px !important;
+                                    }
+        
+                                    .active{
+                                        width: 32px !important;
+                                        height: 9px !important;
+                                    }
                                 }
                             }
+                            
                         }
-                        
-                }
-                }
-                
-                .card-container{
-                    flex-direction: column;
-                    width: 100% !important;
-                    align-items: center;
-                    .card{
-                        width: 100% !important;
-                        height: 250px !important;
-                        min-height: 250px;
-                        margin-bottom: 20px;
                     }
+                    
+                    // background-color: skyblue;
+                    .card-container{
+                        flex-direction: column;
+                        width: 100% !important;
+                        align-items: center;
+                        // background-color: tomato;
+                        .card{
+                            width: 100% !important;
+                            height: 250px !important;
+                            min-height: 250px;
+                            margin-bottom: 20px;
+                        }
+                    }
+                    
                 }
             }
 
@@ -332,6 +334,11 @@
                     align-items: center !important;
                     .profile-container{
                         margin-bottom: 40px;
+                    }
+                    .actual{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
                     }
                 }
             }
