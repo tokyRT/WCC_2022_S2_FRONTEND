@@ -5,8 +5,7 @@ techzara_wcc2
 ## Technos
 - Html
 - Scss
-- vanilla Js
-- Figma
+- Js
 ## team members
  - [Toky RATOLOJANAHARY](https://github.com/tokyRT)
  - [Aina Nirina](https://github.com/BastardCC)
