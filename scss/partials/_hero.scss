@@ -4,7 +4,7 @@
     background: linear-gradient(to left, #F3F3F4 50%, #fff 50%);
     // background-color: tomato;
     display: flex;
-    height: 100vh;
+    height: 100%;
     justify-content: center;
     
     .hero{
@@ -202,10 +202,12 @@
 
             
         }
+        background-color: skyblue;
     
         .right{
             width: 100%;
-            height: 100%;
+            // height: 100%;
+            background-color: red;
             position: relative;
             .wave{
                 
